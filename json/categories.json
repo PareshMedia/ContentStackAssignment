@@ -1,0 +1,20 @@
+{
+  "categories": [
+  {
+    "category_id": "1",
+    "category_name": "Shoes"
+  },
+  {
+    "category_id": "2",
+    "category_name": "T Shirts"
+  },
+  {
+    "category_id": "3",
+    "category_name": "Mobile Covers"
+  },
+  {
+    "category_id": "4",
+    "category_name": "Electronics"
+  }
+  ]
+}

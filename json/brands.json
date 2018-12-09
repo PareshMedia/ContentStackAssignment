@@ -1,0 +1,24 @@
+{
+  "brands": [
+  {
+    "brand_name": "Adidas",
+    "brand_items" : "Shoes, Sportwears",
+    "brand_detail" : "Adidas is a German multinational corporation, headquartered in Herzogenaurach, Germany, that designs and manufactures shoes, clothing and accessories."
+  },
+  {
+    "brand_name": "Nokia",
+    "brand_items" : "Smart Phone",
+    "brand_detail" : "Nokia Corporation stylised as NOKIA, is a Finnish multinational communications and information technology company, founded in 1865."
+  },
+  {
+    "brand_name": "Microsoft",
+    "brand_items" : "Operating System, Gaming",
+    "brand_detail" : "Microsoft Corporation is an American multinational technology company headquartered in Redmond, Washington."
+  },
+  {
+    "brand_name": "Apple",
+    "brand_items" : "Smart Phones, Laptops",
+    "brand_detail" : "Apple is an American multinational technology company headquartered in Cupertino, California that designs, develops, and sells consumer electronics."
+  }
+  ]
+}

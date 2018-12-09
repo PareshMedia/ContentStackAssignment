@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<title>Assignement</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/bootbox.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+
+<body ng-app="dashboardApp" ng-controller="appContoller">
+
+  <div class="row">
+      <div class="col-md-4 col-md-offset-5">
+        <h2>Merchant Dashboard</h2>
+
+      </div>
+  </div>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Summary</a></li>
+    <li><a data-toggle="tab" href="#menu1">Recent Purchase</a></li>
+    <li><a data-toggle="tab" href="#menu2">Purchase Details</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <br><br>
+    <div id="home" class="tab-pane fade in active">
+      <div class="container well">
+        <h2>Items in Cart : {{cart_items.length}}</h2>
+
+
+        <div class="main">
+          <div class="col-lg-3 well">
+            <ul>
+                <li>
+                    <a ng-click='loadProducts()' href="#">Products</a>
+                </li>
+                <li>
+                    <a ng-click='loadCategories()' href="#">Categories</a>
+                </li>
+                <li>
+                    <a ng-click='loadBrands()' href="#">Brands</a>
+                </li>
+            </ul>
+          </div>
+          <div class="col-lg-9 well">
+            <div class="table-responsive">
+              <table class = "table" ng-if="products_data">
+               <caption>Products</caption>
+               <thead>
+                  <tr>
+                     <th>Product ID</th>
+                     <th>Product Type</th>
+                     <th>Product Name</th>
+                     <th>Brand</th>
+                     <th>Price</th>
+                     <th>Add To Cart</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr ng-repeat="p in products_data">
+                     <td>{{p.product_id}}</td>
+                     <td>{{p.product_type}}</td>
+                     <td>{{p.product_name}}</td>
+                     <td>{{p.brand}}</td>
+                     <td>{{p.price}}</td>
+                     <td>
+                       <button type="button" class="btn btn-sm btn-primary" ng-click="add2cart(p)">ADD</button>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+
+            <table class = "table" ng-if="category_data">
+             <caption>Categories</caption>
+             <thead>
+                <tr>
+                   <th>Category ID</th>
+                   <th>Category Name</th>
+                </tr>
+             </thead>
+             <tbody>
+                <tr ng-repeat="c in category_data">
+                   <td>{{c.category_id}}</td>
+                   <td>{{c.category_name}}</td>
+                </tr>
+             </tbody>
+           </table>
+
+           <table class = "table" ng-if="brand_data">
+            <caption>Brands</caption>
+            <thead>
+               <tr>
+                  <th>Brand Name</th>
+                  <th>Brand Items</th>
+                  <th>Brand Details</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr ng-repeat="b in brand_data">
+                  <td>{{b.brand_name}}</td>
+                  <td>{{b.brand_items}}</td>
+                  <td>{{b.brand_detail}}</td>
+               </tr>
+            </tbody>
+          </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <br><br>
+      <p>
+        <div class="container well">
+          <div class="table-responsive" ng-if="cart_items.length">
+            <table class = "table">
+             <caption>Cart Items</caption>
+             <thead>
+                <tr>
+                   <th>Product ID</th>
+                   <th>Product Name</th>
+                   <th>Product Price</th>
+                   <th>Product Details</th>
+                </tr>
+             </thead>
+             <tbody>
+                <tr ng-repeat="p in cart_items track by $index">
+                   <td>{{p.product_id}}</td>
+                   <th>{{p.product_name}}</th>
+                   <td>{{p.price}}</td>
+                   <td>
+                     <a type="button" href="#" ng-click="prod_detail_popup(p.detail)">View Details</a>
+                   </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>Total : {{cart_total}}</td>
+                </tr>
+             </tbody>
+           </table>
+          </div>
+          <h4 ng-hide="cart_items.length">No Items In Cart</h4>
+        </div>
+      </p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <br><br>
+      <p>
+        <div class="container well">
+          <div class="table-responsive">
+            <table class = "table">
+             <caption>Purchased Data</caption>
+             <thead>
+                <tr>
+                   <th>Purchase ID</th>
+                   <th>Purchase Details</th>
+                </tr>
+             </thead>
+             <tbody>
+                <tr ng-repeat="p in purchase_data">
+                   <td>{{p.purchase_id}}</td>
+                   <td>
+                     <button type="button" class="btn btn-sm btn-primary" ng-click="purchaseDetails(p)">Details</button>
+                   </td>
+                </tr>
+             </tbody>
+           </table>
+          </div>
+        </div>
+
+        <div class="container well" ng-if="purchase_detail">
+          <table class = "table">
+           <caption>Purchased Detail</caption>
+           <thead>
+              <tr>
+                 <th>Purchase ID</th>
+                 <th>Product Name</th>
+                 <th>Quantity</th>
+                 <th>Buyer Name</th>
+                 <th>Price</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr>
+                 <td>{{purchase_detail.purchase_id}}</td>
+                 <td>{{purchase_detail.product_name}}</td>
+                 <td>{{purchase_detail.quantity}}</td>
+                 <td>{{purchase_detail.buyer_name}}</td>
+                 <td>{{purchase_detail.price}}</td>
+              </tr>
+           </tbody>
+         </table>
+        </div>
+      </p>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

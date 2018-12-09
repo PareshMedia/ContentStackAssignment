@@ -1,0 +1,39 @@
+{
+  "purchases": [
+  {
+    "purchase_id": "1",
+    "product_name": "Shoes",
+    "quantity":45,
+    "buyer_name":"Heldi Inc",
+    "price":8900
+  },
+  {
+    "purchase_id": "2",
+    "product_name": "Watch",
+    "quantity":4,
+    "buyer_name":"Nimen Pvt Limited",
+    "price":3400
+  },
+  {
+    "purchase_id": "3",
+    "product_name": "Smart Phone",
+    "quantity":1,
+    "buyer_name":"Paresh Gadpayle",
+    "price":23600
+  },
+  {
+    "purchase_id": "4",
+    "product_name": "TV",
+    "quantity":2,
+    "buyer_name":"Capgemini India Pvt Limited",
+    "price":80000
+  },
+  {
+    "purchase_id": "5",
+    "product_name": "Laptop",
+    "quantity":1,
+    "buyer_name":"Lyzo Inc",
+    "price":89000
+  }
+  ]
+}

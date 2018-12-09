@@ -1,0 +1,36 @@
+{
+  "products": [
+  {
+    "product_id": "1",
+    "product_type": "new",
+    "product_name": "Running Shoes",
+    "brand": "adidas",
+    "price": 2000,
+    "detail" : "Adidas running shoe model E234 at lowest price"
+  },
+  {
+    "product_id": "2",
+    "product_type": "used",
+    "product_name": "Running Shoes old",
+    "brand": "puma",
+    "price": 500,
+    "detail": "Puma running shoe used just 3 weeks old best deal"
+  },
+  {
+    "product_id": "3",
+    "product_type": "new",
+    "product_name": "Sport Shoes",
+    "brand": "adidas",
+    "price": 3500,
+    "detail": "Adidas sport shoe cheapest online shoe at lowest price"
+  },
+  {
+    "product_id": "4",
+    "product_type": "new",
+    "product_name": "Formal Shoes",
+    "brand": "Lee Cooper",
+    "price": 2500,
+    "detail": "Lee copper formal office shoe at only 2500"
+  }
+  ]
+}
